@@ -57,7 +57,7 @@ jobs:
         sed -i 's/SRC_NAME = ZeroTierOne-1.4.6/SRC_NAME = ZeroTierOne-1.8.5/g' /opt/rt-n56u/trunk/user/zerotier/Makefile
         sed -i '/SRC_NAME = ZeroTierOne-1.85/a SRC_URL = https:\/\/github.com\/zerotier\/ZeroTierOne\/archive\/refs\/tags\/1.8.5.tar.gz' /opt/rt-n56u/trunk/user/zerotier/Makefile
         sed -i 's/bintray.com\/htop\/source\/download_file?file_path=htop-3.0.2.tar.gz/github.com\/hanwckf\/rt-n56u\/raw\/master\/trunk\/user\/htop\/htop-3.0.2.tar.gz/g' /opt/rt-n56u/trunk/user/htop/Makefile
-        #sed -i 's/CONFIG_FIRMWARE_INCLUDE_WIREGUARD=n/CONFIG_FIRMWARE_INCLUDE_WIREGUARD=y/g' /opt/rt-n56u/trunk/configs/templates/$TNAME.config
+        sed -i 's/CONFIG_FIRMWARE_INCLUDE_WIREGUARD=n/CONFIG_FIRMWARE_INCLUDE_WIREGUARD=y/g' /opt/rt-n56u/trunk/configs/templates/$TNAME.config
         #sed -i 's/CONFIG_FIRMWARE_INCLUDE_SMBD36=y/CONFIG_FIRMWARE_INCLUDE_SMBD36=n/g' /opt/rt-n56u/trunk/configs/templates/$TNAME.config
         #sed -i 's/CONFIG_FIRMWARE_INCLUDE_SFTP=y/CONFIG_FIRMWARE_INCLUDE_SFTP=n/g' /opt/rt-n56u/trunk/configs/templates/$TNAME.config
         #sed -i 's/CONFIG_FIRMWARE_INCLUDE_TTYD=y/CONFIG_FIRMWARE_INCLUDE_TTYD=n/g' /opt/rt-n56u/trunk/configs/templates/$TNAME.config
@@ -124,7 +124,7 @@ jobs:
         echo "CONFIG_FIRMWARE_INCLUDE_KOOLPROXY=n" >> .config #KP广告过滤
         echo "CONFIG_FIRMWARE_INCLUDE_CADDY=n" >> .config #在线文件管理服务
         echo "CONFIG_FIRMWARE_INCLUDE_CADDYBIN=n" >> .config #集成caddu执行文件，此文件有13M,请注意固件大小。如果不集成，会从网上下载下来执行，不影响正常使用
-        echo "CONFIG_FIRMWARE_INCLUDE_ADGUARDHOME=n" >> .config
+        echo "CONFIG_FIRMWARE_INCLUDE_ADGUARDHOME=y" >> .config
         echo "CONFIG_FIRMWARE_INCLUDE_SRELAY=n" >> .config #可以不集成
         echo "CONFIG_FIRMWARE_INCLUDE_WYY=n" >> .config #网易云解锁
         echo "CONFIG_FIRMWARE_INCLUDE_WYYBIN=n" >> .config #网易云解锁GO版本执行文件（4M多）注意固件超大小,不集成会自动下载
