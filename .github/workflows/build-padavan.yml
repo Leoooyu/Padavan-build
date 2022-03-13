@@ -32,7 +32,7 @@ jobs:
         pkg-config zlib1g-dev libgmp3-dev libmpc-dev libmpfr-dev libncurses5-dev libltdl-dev wget
     - name: Clone source code
       env:
-        KERNEL: 4.4
+        KERNEL: 3.4
       run: |
         if [ $KERNEL = "4.4" ] ; then
         git clone --depth=1 https://github.com/MeIsReallyBa/padavan-4.4.git /opt/rt-n56u
@@ -45,8 +45,8 @@ jobs:
         mkdir -p /opt/images/
     - name: Build Firmware
       env:
-        TNAME: K2P_nano
-        KERNEL: 4.4
+        TNAME: PSG1218_nano
+        KERNEL: 3.4
       run: |
         cd /opt/rt-n56u/trunk
         if [ ! -f configs/templates/$TNAME.config ] ; then
@@ -55,8 +55,8 @@ jobs:
         fi
         ########################################################修改失效链接
         #sed -i 's/bintray.com\/htop\/source\/download_file?file_path=htop-3.0.2.tar.gz/github.com\/hanwckf\/rt-n56u\/raw\/master\/trunk\/user\/htop\/htop-3.0.2.tar.gz/g' /opt/rt-n56u/trunk/user/htop/Makefile
-        sed -i 's/CONFIG_FIRMWARE_INCLUDE_WIREGUARD=n/CONFIG_FIRMWARE_INCLUDE_WIREGUARD=y/g' /opt/rt-n56u/trunk/configs/templates/$TNAME.config
-        sed -i 's/CONFIG_FIRMWARE_INCLUDE_TTYD=n/CONFIG_FIRMWARE_INCLUDE_TTYD=y/g' /opt/rt-n56u/trunk/configs/templates/$TNAME.config
+        #sed -i 's/CONFIG_FIRMWARE_INCLUDE_WIREGUARD=n/CONFIG_FIRMWARE_INCLUDE_WIREGUARD=y/g' /opt/rt-n56u/trunk/configs/templates/$TNAME.config
+        #sed -i 's/CONFIG_FIRMWARE_INCLUDE_TTYD=n/CONFIG_FIRMWARE_INCLUDE_TTYD=y/g' /opt/rt-n56u/trunk/configs/templates/$TNAME.config
         #sed -i 's/CONFIG_FIRMWARE_INCLUDE_VLMCSD=y/CONFIG_FIRMWARE_INCLUDE_VLMCSD=n/g' /opt/rt-n56u/trunk/configs/templates/$TNAME.config
         #sed -i 's/CONFIG_FIRMWARE_INCLUDE_SMBD36=y/CONFIG_FIRMWARE_INCLUDE_SMBD36=n/g' /opt/rt-n56u/trunk/configs/templates/$TNAME.config
         #sed -i 's/CONFIG_FIRMWARE_INCLUDE_SFTP=y/CONFIG_FIRMWARE_INCLUDE_SFTP=n/g' /opt/rt-n56u/trunk/configs/templates/$TNAME.config
@@ -114,7 +114,7 @@ jobs:
         echo "CONFIG_FIRMWARE_INCLUDE_ADBYBY=n" >> .config #adbyby plus+
         echo "CONFIG_FIRMWARE_INCLUDE_FRPC=n" >> .config #内网穿透FRPC
         echo "CONFIG_FIRMWARE_INCLUDE_FRPS=n" >> .config #内网穿透FRPS
-        echo "CONFIG_FIRMWARE_INCLUDE_TUNSAFE=y" >> .config #TUNSAFE
+        echo "CONFIG_FIRMWARE_INCLUDE_TUNSAFE=n" >> .config #TUNSAFE
         echo "CONFIG_FIRMWARE_INCLUDE_ALIDDNS=y" >> .config #阿里DDNS
         echo "CONFIG_FIRMWARE_INCLUDE_SMARTDNS=n" >> .config #smartdns
         echo "CONFIG_FIRMWARE_INCLUDE_SMARTDNSBIN=n" >> .config #smartdns二进制文件
