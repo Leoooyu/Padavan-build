@@ -37,8 +37,9 @@ jobs:
         if [ $KERNEL = "4.4" ] ; then
         git clone --depth=1 https://github.com/MeIsReallyBa/padavan-4.4.git /opt/rt-n56u
         else
-        git clone --depth=1 https://github.com/chongshengB/rt-n56u.git /opt/rt-n56u
+        #git clone --depth=1 https://github.com/chongshengB/rt-n56u.git /opt/rt-n56u
         #git clone --depth=1 https://github.com/hwlon/rt-n56u.git /opt/rt-n56u
+        https://github.com/keke1023/Padavan.git /opt/rt-n56u
         fi
         cd /opt/rt-n56u/toolchain-mipsel
         sh dl_toolchain.sh
@@ -54,10 +55,10 @@ jobs:
         exit 1
         fi
         ########################################################修改失效链接
-        git clone --depth=1 https://github.com/hwlon/packages.git  /opt/packages
-        rm -rf /opt/rt-n56u/trunk/user/zerotier/*.*
-        cp -a /opt/packages/zerotier/*.* /opt/rt-n56u/trunk/user/zerotier/
-        sed -i 's/bintray.com\/htop\/source\/download_file?file_path=htop-3.0.2.tar.gz/github.com\/hanwckf\/rt-n56u\/raw\/master\/trunk\/user\/htop\/htop-3.0.2.tar.gz/g' /opt/rt-n56u/trunk/user/htop/Makefile
+        #git clone --depth=1 https://github.com/hwlon/packages.git  /opt/packages
+        #rm -rf /opt/rt-n56u/trunk/user/zerotier/*.*
+        #cp -a /opt/packages/zerotier/*.* /opt/rt-n56u/trunk/user/zerotier/
+        #sed -i 's/bintray.com\/htop\/source\/download_file?file_path=htop-3.0.2.tar.gz/github.com\/hanwckf\/rt-n56u\/raw\/master\/trunk\/user\/htop\/htop-3.0.2.tar.gz/g' /opt/rt-n56u/trunk/user/htop/Makefile
         #sed -i 's/CONFIG_FIRMWARE_INCLUDE_WIREGUARD=n/CONFIG_FIRMWARE_INCLUDE_WIREGUARD=y/g' /opt/rt-n56u/trunk/configs/templates/$TNAME.config
         sed -i 's/CONFIG_FIRMWARE_INCLUDE_TTYD=y/CONFIG_FIRMWARE_INCLUDE_TTYD=n/g' /opt/rt-n56u/trunk/configs/templates/$TNAME.config
         #sed -i 's/CONFIG_FIRMWARE_INCLUDE_VLMCSD=y/CONFIG_FIRMWARE_INCLUDE_VLMCSD=n/g' /opt/rt-n56u/trunk/configs/templates/$TNAME.config
