@@ -56,8 +56,6 @@ jobs:
         fi
         ########################################################修改失效链接
         if [ $TNAME = "PSG1218_nano" ] ; then
-        sed -i 's/"<#menu2#>", "<#menu6#>"/"", ""/g' /opt/rt-n56u/trunk/user/www/n56u_ribbon_fixed/state.js
-        sed -i 's/"vpnsrv.asp", "vpncli.asp"/"", ""/g' /opt/rt-n56u/trunk/user/www/n56u_ribbon_fixed/state.js
         sed -i 's/CONFIG_FIRMWARE_INCLUDE_TTYD=y/CONFIG_FIRMWARE_INCLUDE_TTYD=n/g' /opt/rt-n56u/trunk/configs/templates/$TNAME.config
         #sed -i 's/bintray.com\/htop\/source\/download_file?file_path=htop-3.0.2.tar.gz/github.com\/hanwckf\/rt-n56u\/raw\/master\/trunk\/user\/htop\/htop-3.0.2.tar.gz/g' /opt/rt-n56u/trunk/user/htop/Makefile
         #sed -i 's/CONFIG_FIRMWARE_INCLUDE_WIREGUARD=n/CONFIG_FIRMWARE_INCLUDE_WIREGUARD=y/g' /opt/rt-n56u/trunk/configs/templates/$TNAME.config
@@ -72,10 +70,12 @@ jobs:
         #sed -i 's/CONFIG_FIRMWARE_INCLUDE_DOGCOM=y/CONFIG_FIRMWARE_INCLUDE_DOGCOM=n/g' /opt/rt-n56u/trunk/configs/templates/$TNAME.config
         #sed -i 's/CONFIG_FIRMWARE_INCLUDE_SOCAT=y/CONFIG_FIRMWARE_INCLUDE_SOCAT=n/g' /opt/rt-n56u/trunk/configs/templates/$TNAME.config
         #sed -i 's/CONFIG_FIRMWARE_INCLUDE_MINIEAP=y/CONFIG_FIRMWARE_INCLUDE_MINIEAP=n/g' /opt/rt-n56u/trunk/configs/templates/$TNAME.config
-        #sed -i 's/CONFIG_FIRMWARE_INCLUDE_OPENSSL_EXE=n/CONFIG_FIRMWARE_INCLUDE_OPENSSL_EXE=y/g' .config
         fi
         ########################################################     
         cp -f configs/templates/$TNAME.config .config
+        sed -i 's/"<#menu2#>", "<#menu6#>"/"", ""/g' /opt/rt-n56u/trunk/user/www/n56u_ribbon_fixed/state.js
+        sed -i 's/"vpnsrv.asp", "vpncli.asp"/"", ""/g' /opt/rt-n56u/trunk/user/www/n56u_ribbon_fixed/state.js
+        #sed -i 's/CONFIG_FIRMWARE_INCLUDE_OPENSSL_EXE=n/CONFIG_FIRMWARE_INCLUDE_OPENSSL_EXE=y/g' .config
         #sed -i 's/CONFIG_FIRMWARE_INCLUDE_VLMCSD=y/CONFIG_FIRMWARE_INCLUDE_VLMCSD=n/g' .config
         ################################################################################################
         #因不同型号配置功能不一样，所以先把配置项删除，如果你自己要添加其他的，也要写上删除这一条，切记！！！
