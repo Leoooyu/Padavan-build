@@ -46,7 +46,7 @@ jobs:
         mkdir -p /opt/images/
     - name: Build Firmware
       env:
-        TNAME: K2P_nano
+        TNAME: PSG1218_nano
         KERNEL: 3.4
       run: |
         cd /opt/rt-n56u/trunk
@@ -55,7 +55,9 @@ jobs:
         exit 1
         fi
         ########################################################修改失效链接
-        if [ $TNAME = "PSG1218_nano" ] ; then               
+        if [ $TNAME = "PSG1218_nano" ] ; then
+        sed -i 's/"<#menu2#>", "<#menu6#>"/"", ""/g' /opt/rt-n56u/trunk/user/www/n56u_ribbon_fixed/state.js
+        sed -i 's/"vpnsrv.asp", "vpncli.asp"/"", ""/g' /opt/rt-n56u/trunk/user/www/n56u_ribbon_fixed/state.js
         sed -i 's/CONFIG_FIRMWARE_INCLUDE_TTYD=y/CONFIG_FIRMWARE_INCLUDE_TTYD=n/g' /opt/rt-n56u/trunk/configs/templates/$TNAME.config
         #sed -i 's/bintray.com\/htop\/source\/download_file?file_path=htop-3.0.2.tar.gz/github.com\/hanwckf\/rt-n56u\/raw\/master\/trunk\/user\/htop\/htop-3.0.2.tar.gz/g' /opt/rt-n56u/trunk/user/htop/Makefile
         #sed -i 's/CONFIG_FIRMWARE_INCLUDE_WIREGUARD=n/CONFIG_FIRMWARE_INCLUDE_WIREGUARD=y/g' /opt/rt-n56u/trunk/configs/templates/$TNAME.config
