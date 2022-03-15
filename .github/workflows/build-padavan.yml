@@ -73,6 +73,7 @@ jobs:
         fi
         ########################################################     
         cp -f configs/templates/$TNAME.config .config
+        #######################################################移除 VPN 服务器和客户端快捷菜单
         sed -i 's/"<#menu2#>", "<#menu6#>"/"", ""/g' /opt/rt-n56u/trunk/user/www/n56u_ribbon_fixed/state.js
         sed -i 's/"vpnsrv.asp", "vpncli.asp"/"", ""/g' /opt/rt-n56u/trunk/user/www/n56u_ribbon_fixed/state.js        
         #sed -i 's/CONFIG_FIRMWARE_INCLUDE_OPENSSL_EXE=n/CONFIG_FIRMWARE_INCLUDE_OPENSSL_EXE=y/g' .config
