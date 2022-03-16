@@ -73,7 +73,7 @@ jobs:
         sed -i 's/"<#menu2#>", "<#menu6#>"/"", ""/g' /opt/rt-n56u/trunk/user/www/n56u_ribbon_fixed/state.js
         sed -i 's/"vpnsrv.asp", "vpncli.asp"/"", ""/g' /opt/rt-n56u/trunk/user/www/n56u_ribbon_fixed/state.js
         #wget -O /opt/rt-n56u/trunk/user/www/n56u_ribbon_fixed/bootstrap/img/asus_logo.png https://github.com/hwlon/packages/blob/main/png/asus_logo.png
-        sed -i 's/CONFIG_FIRMWARE_INCLUDE_WIREGUARD=n/CONFIG_FIRMWARE_INCLUDE_WIREGUARD=y/g' /opt/rt-n56u/trunk/configs/templates/$TNAME.config
+        #sed -i 's/CONFIG_FIRMWARE_INCLUDE_WIREGUARD=n/CONFIG_FIRMWARE_INCLUDE_WIREGUARD=y/g' /opt/rt-n56u/trunk/configs/templates/$TNAME.config
         ########################################################     
         cp -f configs/templates/$TNAME.config .config
         #######################################################移除 VPN 服务器和客户端快捷菜单
