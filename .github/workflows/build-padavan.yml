@@ -1,4 +1,4 @@
-#修改TNAME: K2P_nano 中的K2P_nano为你需要编译的型号，注意名称要与configs/templates/目录下的名字相同  K2为：PSG1218_nano
+#修改TNAME: K2P_nano 中的K2P_nano为你需要编译的型号，注意名称要与configs/templates/目录下的名字相同  K2为：PSG1218_nano    小米：CR660x
 name: Build Padavan
 
 on: 
@@ -47,7 +47,7 @@ jobs:
         mkdir -p /opt/images/
     - name: Build Firmware
       env:
-        TNAME: K2P_nano
+        TNAME: CR660x
         KERNEL: 4.4
       run: |
         cd /opt/rt-n56u/trunk
