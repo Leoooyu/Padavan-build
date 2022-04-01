@@ -47,8 +47,8 @@ jobs:
         mkdir -p /opt/images/
     - name: Build Firmware
       env:
-        #TNAME: K2P_nano
-        TNAME: CR660x
+        TNAME: K2P_nano
+        #TNAME: CR660x
         KERNEL: 4.4
       run: |
         cd /opt/rt-n56u/trunk
